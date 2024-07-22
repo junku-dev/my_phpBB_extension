@@ -1,8 +1,12 @@
 html{width: 100%;}
 
 body{
-    background-color: rgb(38, 38, 38);
-    color: whitesmoke;
+    --pc: rgb(38, 38, 38);
+    --sc: rgb(228, 228, 228);
+    --tc: rgb(66, 66, 66);
+
+    background-color: var(--pc);
+    color: var(--sc);
     width: 500px;
     height: auto;
 }
@@ -16,21 +20,20 @@ textarea{
     width: 400px;
     height: 150px;
     background-color: rgb(38, 38, 38);
-    color: whitesmoke;
+    color: var(--sc);
 }
 
 button{
-    background-color: rgb(53, 90, 190);
-    border-radius: 10px;
-    border: 2px solid rgb(53, 90, 190);
+    background-color: var(--pc);
+    border: 2px solid var(--sc);
     width: 100px;
     height: auto;
-    color: whitesmoke;
+    color: var(--sc);
     cursor: pointer;
 }
 
 button:hover{
-    background-color: rgb(39, 64, 133);
+    background-color: var(--tc);
 }
 
 .popup label,textarea,button{

@@ -50,14 +50,25 @@ resetBtn.addEventListener(('click'), () =>{
 });
 
 
+/**
+ * Reset style when user types.
+ */
+input.addEventListener("change", () => {
+        input.placeholder = "Enter phpBB...";
+        input.style = "border-color: none;";
+});
+
+
 async function setUserCode(obj){
     userCode = obj;
     await localStorage.setItem("code", userCode);
 }
 
+
 function getActiveTab(){
     return browser.tabs.query({ active: true, currentWindow: true });
 }
+
 
 async function init(){
     if(localStorage.getItem("code")){
