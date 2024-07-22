@@ -1,46 +1,30 @@
-let userInput = document.getElementById("user-input");
+let input = document.getElementById("user-input");
 let saveBtn = document.getElementById("save-btn");
 let resetBtn = document.getElementById('reset-btn');
 let userCode;
-let cookieVal = { code : "" };
 
-userInput.style = "border-color: none;";
-userInput.placeholder = "Enter phpBB...";
+input.style = "border-color: none;";
+input.placeholder = "Enter phpBB...";
 
-function setUserCode(obj){
-    userCode = obj;
-}
-
-function getActiveTab(){
-    return browser.tabs.query({ active: true, currentWindow: true });
-}
 
 /**
  * grab user input on click.
  */
 saveBtn.addEventListener(('click'), () => {
-    userInput.style = "border-color: none;";
-    userInput.placeholder = "Enter phpBB...";
+    input.style = "border-color: none;";
+    input.placeholder = "Enter phpBB...";
     console.log(getActiveTab());
     getActiveTab().then((tabs) => {
-        if(userInput.value !== ""){
-            setUserCode(userInput.value);
+        if(input.value !== ""){
+            setUserCode(input.value);
             alert("saved:\n" + userCode);
             browser.tabs.sendMessage(tabs[0].id, { code: userCode });
 
-            cookieVal.code = userCode;
-            browser.cookies.set({
-                url: tabs[0].url,
-                name: "userphp",
-                value: JSON.stringify(cookieVal),
-                partitionKey: {topLevelSite: "https://insect.christmas/forum/"}
-            })
-
-            console.log(cookieVal);
+            console.log(localStorage);
         }
         else{
-            userInput.style = "border-color: red;";
-            userInput.placeholder = "You cannot leave this field blank...";
+            input.style = "border-color: red;";
+            input.placeholder = "You cannot leave this field blank...";
         }
     });
 });
@@ -50,32 +34,46 @@ saveBtn.addEventListener(('click'), () => {
  * reset
  */
 resetBtn.addEventListener(('click'), () =>{
-    userInput.value = "";
-    userInput.style = "border-color: none;";
-    userInput.placeholder = "Enter phpBB...";
+    input.value = "";
+    input.style = "border-color: none;";
+    input.placeholder = "Enter phpBB...";
     getActiveTab().then((tabs) => {
         browser.tabs.sendMessage(tabs[0].id, { reset:true });
         
-        if(!cookieVal.code){
-            alert("no cookies exist for this site...");
+        if(!localStorage.getItem("code")){
+            alert("No scripts exist yet.");
+            return;
         }
 
-        cookieVal = { code: "" };
-        browser.cookies.remove({
-            url: tabs[0].url,
-            name: "userphp"
-        })
+        localStorage.removeItem("code");
     }) 
 });
 
-/**
- * listen to cookies
- */
-browser.cookies.onChanged.addListener((changeInfo) => {
-    if(changeInfo.cookie.domain === "insect.christmas"){
-        console.log(`Cookie changed\n
-            * Cookie: ${JSON.stringify(changeInfo.cookie)}\n
-            * Cause: ${changeInfo.cause}\n
-            * Removed: ${changeInfo.removed}`)
+
+async function setUserCode(obj){
+    userCode = obj;
+    await localStorage.setItem("code", userCode);
+}
+
+function getActiveTab(){
+    return browser.tabs.query({ active: true, currentWindow: true });
+}
+
+async function init(){
+    if(localStorage.getItem("code")){
+        input.value = localStorage.getItem("code");
     }
-});
+}
+
+init().catch(e => console.error(e));
+
+
+/**
+ * listen to changes for debugging.
+ */
+// localStorage.onChanged.addListener((changeInfo) => {
+//         console.log(`script changed\n
+//             * Change: ${changeInfo.localStorage}\n
+//             * Cause: ${changeInfo.cause}\n
+//             * Removed: ${changeInfo.removed}`)
+//     });
