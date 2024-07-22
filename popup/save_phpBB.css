@@ -1,0 +1,46 @@
+html{width: 100%;}
+
+body{
+    background-color: rgb(38, 38, 38);
+    color: whitesmoke;
+    width: 500px;
+    height: auto;
+}
+
+label{
+    margin: 0;
+}
+
+textarea{
+    display: block;
+    width: 400px;
+    height: 150px;
+    background-color: rgb(38, 38, 38);
+    color: whitesmoke;
+}
+
+button{
+    background-color: rgb(53, 90, 190);
+    border-radius: 10px;
+    border: 2px solid rgb(53, 90, 190);
+    width: 100px;
+    height: auto;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(39, 64, 133);
+}
+
+.popup label,textarea,button{
+    margin: .5rem;
+}
+
+.hidden{
+    display: none;
+}
+
+#error-content{
+    color:red;
+}
