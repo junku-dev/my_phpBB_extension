@@ -23,8 +23,3 @@ function fetchPhp(){
  * update when tab is updated.
  */
 browser.tabs.onUpdated.addListener(fetchPhp);
-
-/**
- * update when tab is activated.
- */
-browser.tabs.onActivated.addListener(fetchPhp);
