@@ -53,10 +53,21 @@ Instructions for chrome will come at a later date.
 
 This extension does not use any cookies, nor does this extension log any data. Your script will be saved locally in your browser as string. That's it. For transparency, the source code is avaliable.
 
-## Known Issues
+## Known Issues To Be Ignored For Now
 Coming Soon...
 
 If you see an error. No you didn't.
 
-## Closing Notes
-This extension is still in development. I hope to make a release soon. For now, it can be used as a temporary extension. If you're interested in the extension please consider staring the repo and feel free to test it and play around with it. Report any Issues in the [Issues](https://github.com/junku-dev/my_phpBB_extension/issues) tab.
+## Release
+This extension is still in development. I hope to make a release soon. For now, it can be used as a temporary extension. If you're interested in the extension please consider starring the repo and feel free to test it and play around with it. Report any Issues in the [Issues](https://github.com/junku-dev/my_phpBB_extension/issues) tab.
+
+## Contribute 
+Simply Clone the Repo. 
+
+Make a new branch with the following branch name format: ```<githubname_issue_issuedesc>```. 
+
+If the issue does not exist yet, then make an issue first. 
+
+Push your code changes up with your new branch. Make a pull request. 
+
+Once approved, select ```squash commits and merge```.
