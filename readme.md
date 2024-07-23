@@ -64,7 +64,7 @@ This extension is still in development. I hope to make a release soon. For now, 
 ## Contribute 
 Simply Clone the Repo. 
 
-Make a new branch with the following branch name format: ```<githubname_issue_issuedesc>```. 
+Make a new branch with the following branch name format: ```<githubname_issue>```. 
 
 If the issue does not exist yet, then make an issue first. 
 
