@@ -40,7 +40,7 @@ This is the only node module that will be included in this extension and it is a
 8. Click ```Save Changes```
 
 ### Chrome
-1. navigate to (chrome://extensions)[chrome://extensions]
+1. navigate to [chrome://extensions](chrome://extensions)
 2. check ```developer mode```
 3. click ```load unpacked extension```
 4. select the ```manifest.json``` file
