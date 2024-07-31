@@ -40,7 +40,10 @@ This is the only node module that will be included in this extension and it is a
 8. Click ```Save Changes```
 
 ### Chrome
-Instructions for chrome will come at a later date. 
+1. navigate to (chrome://extensions)[chrome://extensions]
+2. check ```developer mode```
+3. click ```load unpacked extension```
+4. select the ```manifest.json``` file
 
 ## How-To-Use
 - Navigate to ```https://insect.christmas/forum```
@@ -53,8 +56,12 @@ Instructions for chrome will come at a later date.
 
 This extension does not use any cookies, nor does this extension log any data. Your script will be saved locally in your browser as string. That's it. For transparency, the source code is avaliable.
 
-## Known Issues To Be Ignored For Now
-Coming Soon...
+## Known Issues To Be Ignored For Now (Won't Fix)
+**These do not break the extension.**
+
+```Uncaught (in promise) Error: Could not establish connection. Receiving end does not exist.``` - There is not a message box to inject your script visibile yet.
+
+```Uncaught (in promise) Error: msg_box is null``` - textarea is not visible yet.
 
 If you see an error. No you didn't.
 

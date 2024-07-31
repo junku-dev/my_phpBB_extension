@@ -76,15 +76,4 @@ async function init(){
     }
 }
 
-init().catch(e => console.error(e));
-
-
-/**
- * listen to changes for debugging.
- */
-// localStorage.onChanged.addListener((changeInfo) => {
-//         console.log(`script changed\n
-//             * Change: ${changeInfo.localStorage}\n
-//             * Cause: ${changeInfo.cause}\n
-//             * Removed: ${changeInfo.removed}`)
-//     });
+init();

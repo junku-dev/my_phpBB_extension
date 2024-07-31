@@ -7,15 +7,16 @@ function fetchPhp(){
         getActiveTab().then((tabs) => {
             let userCode = localStorage.getItem("code") || "";
             if(userCode !== ""){
-                browser.tabs.sendMessage(tabs[0].id, { code: userCode });
+                browser.tabs.sendMessage(tabs[0].id, { code: userCode })
+                    .catch(w => console.warn(w));
             }
             else{
                 console.log("no script.");
             }
             
         });
-    } catch (w){
-        console.error(w);
+    } catch (e){
+        console.error(e);
     }
 }
 
